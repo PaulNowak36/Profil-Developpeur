@@ -30,6 +30,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+// L'écran du profil développeur
 @Composable
 fun DeveloperScreen(name: String, modifier: Modifier = Modifier) {
     Text(
