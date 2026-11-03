@@ -33,8 +33,19 @@ class MainActivity : ComponentActivity() {
 // L'écran du profil développeur
 @Composable
 fun DeveloperScreen(name: String, modifier: Modifier = Modifier) {
+    DeveloperName(
+        name = "Paul NOWAK",
+        modifier = modifier
+    )
+}
+
+@Composable
+fun DeveloperName(
+    name: String,
+    modifier: Modifier = Modifier
+) {
     Text(
-        text = "Hello $name!",
+        text = "$name!",
         modifier = modifier
     )
 }
