@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -23,7 +24,6 @@ class MainActivity : ComponentActivity() {
             ProfilDeveloppeurTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     DeveloperScreen(
-                        name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -34,14 +34,27 @@ class MainActivity : ComponentActivity() {
 
 // L'écran du profil développeur
 @Composable
-fun DeveloperScreen(name: String, modifier: Modifier = Modifier) {
+fun DeveloperScreen(modifier: Modifier = Modifier) {
+    DeveloperFile(
+        name = "Paul NOWAK",
+        title = "Développeur C++",
+        modifier = modifier.fillMaxWidth().padding(16.dp)
+    )
+}
+
+@Composable
+fun DeveloperFile(
+    name: String,
+    title: String,
+    modifier: Modifier = Modifier
+) {
     Column {
         DeveloperName(
-            name = "Paul NOWAK",
+            name = name,
             modifier = modifier.padding(12.dp)
         )
         DeveloperTitle(
-            title = "Développeur C++",
+            title = title,
             modifier = modifier.padding(12.dp)
         )
     }
@@ -53,7 +66,7 @@ fun DeveloperName(
     modifier: Modifier = Modifier
 ) {
     Text(
-        text = "$name",
+        text = name,
         modifier = modifier
     )
 }
@@ -64,7 +77,7 @@ fun DeveloperTitle(
     modifier: Modifier = Modifier
 ) {
     Text(
-        text = "$title",
+        text = title,
         modifier = modifier
     )
 }
@@ -73,6 +86,6 @@ fun DeveloperTitle(
 @Composable
 fun DeveloperScreenPreview() {
     ProfilDeveloppeurTheme {
-        DeveloperScreen("Android")
+        DeveloperScreen()
     }
 }
