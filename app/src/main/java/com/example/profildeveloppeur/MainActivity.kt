@@ -9,9 +9,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.profildeveloppeur.ui.theme.ProfilDeveloppeurTheme
@@ -38,7 +42,8 @@ fun DeveloperScreen(modifier: Modifier = Modifier) {
     DeveloperFile(
         name = "Paul NOWAK",
         title = "Développeur C++",
-        modifier = modifier.fillMaxWidth().padding(16.dp)
+        text = "Etudiant en première année de mastère spécialisé dans l'architecture des logiciels.",
+        modifier = modifier.padding(16.dp)
     )
 }
 
@@ -46,17 +51,26 @@ fun DeveloperScreen(modifier: Modifier = Modifier) {
 fun DeveloperFile(
     name: String,
     title: String,
+    text: String,
     modifier: Modifier = Modifier
 ) {
-    Column {
-        DeveloperName(
-            name = name,
-            modifier = modifier.padding(12.dp)
-        )
-        DeveloperTitle(
-            title = title,
-            modifier = modifier.padding(12.dp)
-        )
+    Surface(color = Color.LightGray) {
+        Column (
+            modifier = modifier
+        ) {
+            DeveloperName(
+                name = name,
+                modifier = modifier.padding(12.dp)
+            )
+            DeveloperTitle(
+                title = title,
+                modifier = modifier.padding(12.dp)
+            )
+            DeveloperDescription(
+                text = text,
+                modifier = modifier.padding(12.dp)
+            )
+        }
     }
 }
 
@@ -67,7 +81,8 @@ fun DeveloperName(
 ) {
     Text(
         text = name,
-        modifier = modifier
+        modifier = modifier,
+        color = Color.Magenta
     )
 }
 
@@ -78,6 +93,17 @@ fun DeveloperTitle(
 ) {
     Text(
         text = title,
+        modifier = modifier
+    )
+}
+
+@Composable
+fun DeveloperDescription(
+    text: String,
+    modifier: Modifier = Modifier
+) {
+    Text(
+        text = text,
         modifier = modifier
     )
 }
