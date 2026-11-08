@@ -4,9 +4,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -18,6 +21,7 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.profildeveloppeur.ui.theme.ProfilDeveloppeurTheme
 
 class MainActivity : ComponentActivity() {
@@ -58,13 +62,10 @@ fun DeveloperFile(
         Column (
             modifier = modifier
         ) {
-            DeveloperName(
+            DeveloperHeading(
                 name = name,
-                modifier = modifier.padding(12.dp)
-            )
-            DeveloperTitle(
                 title = title,
-                modifier = modifier.padding(12.dp)
+                modifier = modifier.fillMaxWidth()
             )
             DeveloperDescription(
                 text = text,
@@ -75,24 +76,50 @@ fun DeveloperFile(
 }
 
 @Composable
+fun DeveloperHeading(
+    name: String,
+    title: String,
+    modifier: Modifier = Modifier
+) {
+    Surface(color = Color.Cyan) {
+        Column {
+            DeveloperName(
+                name = name,
+                fontSize = 35,
+                modifier = modifier
+            )
+            DeveloperTitle(
+                title = title,
+                fontSize = 25,
+                modifier = modifier
+            )
+        }
+    }
+}
+
+@Composable
 fun DeveloperName(
     name: String,
+    fontSize: Int,
     modifier: Modifier = Modifier
 ) {
     Text(
         text = name,
+        fontSize = fontSize.sp,
         modifier = modifier,
-        color = Color.Magenta
+        color = Color.Red
     )
 }
 
 @Composable
 fun DeveloperTitle(
     title: String,
+    fontSize: Int,
     modifier: Modifier = Modifier
 ) {
     Text(
         text = title,
+        fontSize = fontSize.sp,
         modifier = modifier
     )
 }
