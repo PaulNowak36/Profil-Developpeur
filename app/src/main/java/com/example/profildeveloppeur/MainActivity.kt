@@ -73,12 +73,15 @@ fun DeveloperFile(
             DeveloperDescription(
                 text = text,
                 fontSize = 20,
-                modifier = modifier.fillMaxWidth().padding(12.dp)
+                modifier = modifier
+                    .fillMaxWidth()
+                    .padding(12.dp)
             )
             DeveloperSkillsList(
                 fontSize = 20,
                 skillsList = skillsList,
-                modifier = modifier.fillMaxWidth().padding(12.dp)
+                modifier = modifier
+                    .fillMaxWidth()
             )
         }
     }
@@ -153,27 +156,30 @@ fun DeveloperSkillsList(
     skillsList: Array<String>,
     modifier: Modifier = Modifier
 ) {
-    Text(
-        text = "Liste des compétences: ",
-        fontWeight = FontWeight.Bold,
-        fontSize = fontSize.sp,
-        modifier = modifier
-    )
-    DeveloperUniqueSkill(
-        skill = skillsList[0],
-        fontSize = fontSize,
-        modifier = modifier
-    )
-    DeveloperUniqueSkill(
-        skill = skillsList[1],
-        fontSize = fontSize,
-        modifier = modifier
-    )
-    DeveloperUniqueSkill(
-        skill = skillsList[2],
-        fontSize = fontSize,
-        modifier = modifier
-    )
+    Column {
+        Text(
+            text = "Liste des compétences: ",
+            fontWeight = FontWeight.Bold,
+            fontSize = fontSize.sp,
+            modifier = modifier
+        )
+
+        DeveloperUniqueSkill(
+            skill = skillsList[0],
+            fontSize = fontSize,
+            modifier = modifier
+        )
+        DeveloperUniqueSkill(
+            skill = skillsList[1],
+            fontSize = fontSize,
+            modifier = modifier
+        )
+        DeveloperUniqueSkill(
+            skill = skillsList[2],
+            fontSize = fontSize,
+            modifier = modifier
+        )
+    }
 
 }
 
