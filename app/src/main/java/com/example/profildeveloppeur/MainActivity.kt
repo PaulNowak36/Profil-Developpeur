@@ -69,7 +69,12 @@ fun DeveloperFile(
             )
             DeveloperDescription(
                 text = text,
-                modifier = modifier.padding(12.dp)
+                fontSize = 20,
+                modifier = modifier.fillMaxWidth().padding(12.dp)
+            )
+            DeveloperSkills(
+                fontSize = 20,
+                modifier = modifier.fillMaxWidth().padding(12.dp)
             )
         }
     }
@@ -81,7 +86,7 @@ fun DeveloperHeading(
     title: String,
     modifier: Modifier = Modifier
 ) {
-    Surface(color = Color.Cyan) {
+    Surface(color = Color.Blue) {
         Column {
             DeveloperName(
                 name = name,
@@ -107,7 +112,7 @@ fun DeveloperName(
         text = name,
         fontSize = fontSize.sp,
         modifier = modifier,
-        color = Color.Red
+        color = Color.Yellow
     )
 }
 
@@ -120,17 +125,32 @@ fun DeveloperTitle(
     Text(
         text = title,
         fontSize = fontSize.sp,
-        modifier = modifier
+        modifier = modifier,
+        color = Color.Green
     )
 }
 
 @Composable
 fun DeveloperDescription(
     text: String,
+    fontSize: Int,
     modifier: Modifier = Modifier
 ) {
     Text(
         text = text,
+        fontSize = fontSize.sp,
+        modifier = modifier
+    )
+}
+
+@Composable
+fun DeveloperSkills(
+    fontSize: Int,
+    modifier: Modifier = Modifier
+) {
+    Text(
+        text = "Liste des compétences: C++, Python, TypeScript",
+        fontSize = fontSize.sp,
         modifier = modifier
     )
 }
