@@ -48,6 +48,7 @@ fun DeveloperScreen(modifier: Modifier = Modifier) {
         name = "Paul NOWAK",
         title = "Développeur C++",
         text = "Etudiant en première année de mastère spécialisé dans l'architecture des logiciels.",
+        skillsList = arrayOf("C#", "Python", "React"),
         modifier = modifier.padding(16.dp)
     )
 }
@@ -57,6 +58,7 @@ fun DeveloperFile(
     name: String,
     title: String,
     text: String,
+    skillsList: Array<String>,
     modifier: Modifier = Modifier
 ) {
     Surface(color = Color.LightGray) {
@@ -73,8 +75,9 @@ fun DeveloperFile(
                 fontSize = 20,
                 modifier = modifier.fillMaxWidth().padding(12.dp)
             )
-            DeveloperSkills(
+            DeveloperSkillsList(
                 fontSize = 20,
+                skillsList = skillsList,
                 modifier = modifier.fillMaxWidth().padding(12.dp)
             )
         }
@@ -145,8 +148,9 @@ fun DeveloperDescription(
 }
 
 @Composable
-fun DeveloperSkills(
+fun DeveloperSkillsList(
     fontSize: Int,
+    skillsList: Array<String>,
     modifier: Modifier = Modifier
 ) {
     Text(
@@ -156,17 +160,17 @@ fun DeveloperSkills(
         modifier = modifier
     )
     DeveloperUniqueSkill(
-        skill = "C++",
+        skill = skillsList[0],
         fontSize = fontSize,
         modifier = modifier
     )
     DeveloperUniqueSkill(
-        skill = "Python",
+        skill = skillsList[1],
         fontSize = fontSize,
         modifier = modifier
     )
     DeveloperUniqueSkill(
-        skill = "TypeScript",
+        skill = skillsList[2],
         fontSize = fontSize,
         modifier = modifier
     )
