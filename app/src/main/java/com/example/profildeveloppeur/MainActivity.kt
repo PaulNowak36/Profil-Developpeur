@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,6 +17,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.contentDescription
@@ -89,7 +91,6 @@ fun DeveloperFile(
                 skillsList = skillsList,
                 onSkillsClick = onSkillsClick,
                 modifier = modifier
-                    .fillMaxWidth()
             )
             DeveloperMail(
                 mail = mail,
@@ -147,7 +148,7 @@ fun DeveloperTitle(
         text = title,
         fontSize = fontSize.sp,
         fontWeight = FontWeight.Bold,
-        modifier = modifier,
+        modifier = modifier
     )
 }
 
@@ -172,19 +173,24 @@ fun DeveloperSkillsList(
     modifier: Modifier = Modifier
 ) {
     Column {
-        Text(
-            text = "Liste des compétences: ",
-            fontWeight = FontWeight.Bold,
-            fontSize = fontSize.sp,
-            modifier = modifier
-        )
 
-        ShowSkillsButton(
-            isShown = false,
-            onSkillsClick = onSkillsClick,
-            modifier = modifier
+        Row (
+            modifier = modifier,
+        ){
+            Text(
+                text = "Liste des compétences: ",
+                fontWeight = FontWeight.Bold,
+                fontSize = fontSize.sp,
+                modifier = modifier.weight(1f)
+            )
 
-        )
+            ShowSkillsButton(
+                isShown = false,
+                fontSize = fontSize,
+                onSkillsClick = onSkillsClick,
+                modifier = modifier
+            )
+        }
 
         DeveloperUniqueSkill(
             skill = skillsList[0],
@@ -222,6 +228,7 @@ fun DeveloperUniqueSkill(
 @Composable
 fun ShowSkillsButton(
     isShown: Boolean,
+    fontSize: Int,
     onSkillsClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -234,7 +241,8 @@ fun ShowSkillsButton(
                 "Cacher"
             } else {
                 "Montrer"
-            }
+            },
+            fontSize = fontSize.sp
         )
     }
 }
