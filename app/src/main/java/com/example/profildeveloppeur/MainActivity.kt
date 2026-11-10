@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -50,6 +51,9 @@ fun DeveloperScreen(modifier: Modifier = Modifier) {
         text = "Etudiant en première année de mastère spécialisé dans l'architecture des logiciels.",
         skillsList = arrayOf("C#", "Python", "React"),
         mail = "p.nowak@myskolae.fr",
+        onSkillsClick = {
+            // Plus tard : Montrer les compétences
+        },
         modifier = modifier.padding(16.dp)
     )
 }
@@ -61,9 +65,10 @@ fun DeveloperFile(
     text: String,
     mail: String,
     skillsList: Array<String>,
+    onSkillsClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Surface(color = Color.LightGray) {
+    Surface(color = Color.White) {
         Column (
             modifier = modifier
         ) {
@@ -82,6 +87,7 @@ fun DeveloperFile(
             DeveloperSkillsList(
                 fontSize = 20,
                 skillsList = skillsList,
+                onSkillsClick = onSkillsClick,
                 modifier = modifier
                     .fillMaxWidth()
             )
@@ -100,7 +106,7 @@ fun DeveloperHeading(
     title: String,
     modifier: Modifier = Modifier
 ) {
-    Surface(color = Color.Cyan) {
+    Surface(color = Color.LightGray) {
         Column {
             DeveloperName(
                 name = name,
@@ -162,6 +168,7 @@ fun DeveloperDescription(
 fun DeveloperSkillsList(
     fontSize: Int,
     skillsList: Array<String>,
+    onSkillsClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column {
@@ -170,6 +177,13 @@ fun DeveloperSkillsList(
             fontWeight = FontWeight.Bold,
             fontSize = fontSize.sp,
             modifier = modifier
+        )
+
+        ShowSkillsButton(
+            isShown = false,
+            onSkillsClick = onSkillsClick,
+            modifier = modifier
+
         )
 
         DeveloperUniqueSkill(
@@ -203,6 +217,26 @@ fun DeveloperUniqueSkill(
         fontSize = fontSize.sp,
         modifier = modifier
     )
+}
+
+@Composable
+fun ShowSkillsButton(
+    isShown: Boolean,
+    onSkillsClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Button(
+        onClick = onSkillsClick,
+        modifier = modifier
+    ) {
+        Text(
+            text = if (isShown) {
+                "Cacher"
+            } else {
+                "Montrer"
+            }
+        )
+    }
 }
 
 @Composable
