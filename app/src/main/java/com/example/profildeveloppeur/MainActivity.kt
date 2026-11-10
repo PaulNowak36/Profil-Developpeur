@@ -49,6 +49,7 @@ fun DeveloperScreen(modifier: Modifier = Modifier) {
         title = "Développeur C++",
         text = "Etudiant en première année de mastère spécialisé dans l'architecture des logiciels.",
         skillsList = arrayOf("C#", "Python", "React"),
+        mail = "p.nowak@myskolae.fr",
         modifier = modifier.padding(16.dp)
     )
 }
@@ -58,6 +59,7 @@ fun DeveloperFile(
     name: String,
     title: String,
     text: String,
+    mail: String,
     skillsList: Array<String>,
     modifier: Modifier = Modifier
 ) {
@@ -83,6 +85,11 @@ fun DeveloperFile(
                 modifier = modifier
                     .fillMaxWidth()
             )
+            DeveloperMail(
+                mail = mail,
+                fontSize = 20,
+                modifier = modifier
+            )
         }
     }
 }
@@ -93,7 +100,7 @@ fun DeveloperHeading(
     title: String,
     modifier: Modifier = Modifier
 ) {
-    Surface(color = Color.Blue) {
+    Surface(color = Color.Cyan) {
         Column {
             DeveloperName(
                 name = name,
@@ -105,6 +112,7 @@ fun DeveloperHeading(
                 fontSize = 25,
                 modifier = modifier
             )
+
         }
     }
 }
@@ -119,7 +127,7 @@ fun DeveloperName(
         text = name,
         fontSize = fontSize.sp,
         modifier = modifier,
-        color = Color.Yellow
+        color = Color.Red
     )
 }
 
@@ -132,8 +140,8 @@ fun DeveloperTitle(
     Text(
         text = title,
         fontSize = fontSize.sp,
+        fontWeight = FontWeight.Bold,
         modifier = modifier,
-        color = Color.Green
     )
 }
 
@@ -196,6 +204,21 @@ fun DeveloperUniqueSkill(
         modifier = modifier
     )
 }
+
+@Composable
+fun DeveloperMail(
+    mail : String,
+    fontSize: Int,
+    modifier: Modifier = Modifier
+) {
+
+    Text(
+        text = "Mon mail:  $mail",
+        fontSize = fontSize.sp,
+        modifier = modifier
+    )
+}
+
 
 @Preview(showBackground = true)
 @Composable
