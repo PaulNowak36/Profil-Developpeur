@@ -206,7 +206,7 @@ fun DeveloperSkillsSection(
 
             ShowSkillsButton(
                 isShown = isShown,
-                fontSize = fontSize,
+                fontSize = fontSize - 8,
                 onSkillsClick = onSkillsClick,
                 modifier = modifier
             )
@@ -320,6 +320,9 @@ fun ProductSkillsShownPreview() {
             skillsList = arrayOf("C++", "Python", "TypeScript"),
             mail = "p.nowak@myskolae.fr",
             isShown = true,
+            onFileClick = {
+                // Plus tard : ouvrir le détail de la fiche développeur
+            },
             onSkillsClick = {
                 // Plus tard : Montrer les compétences
             },
@@ -340,6 +343,9 @@ fun ProductSkillsHiddenPreview() {
             skillsList = arrayOf("C++", "React", "HTML"),
             mail = "p.nowak@myskolae.fr",
             isShown = false,
+            onFileClick = {
+                // Plus tard : ouvrir le détail de la fiche développeur
+            },
             onSkillsClick = {
                 // Plus tard : Montrer les compétences
             },
