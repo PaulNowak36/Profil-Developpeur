@@ -115,7 +115,7 @@ fun DeveloperFileContent(
 ) {
 
     Column (
-        modifier = modifier
+        modifier = modifier.padding(2.dp)
     ) {
         DeveloperHeading(
             name = name,
@@ -130,7 +130,7 @@ fun DeveloperFileContent(
                 .padding(12.dp)
         )
         DeveloperSkillsSection(
-            fontSize = 20,
+            fontSize = 18,
             skillsList = skillsList,
             isShown = isShown,
             onSkillsClick = onSkillsClick,
@@ -231,7 +231,7 @@ fun DeveloperSkillsSection(
 
             ShowSkillsButton(
                 isShown = isShown,
-                fontSize = fontSize - 8,
+                fontSize = fontSize - 6,
                 onSkillsClick = onSkillsClick,
                 modifier = modifier
             )
