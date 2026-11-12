@@ -89,35 +89,60 @@ fun DeveloperFile(
                 contentDescription = "Ouvrir le détail de la fiche développeur de $name"
             }
     ) {
-        Column (
+        DeveloperFileContent(
+            name = name,
+            title = title,
+            text = text,
+            mail = mail,
+            skillsList = skillsList,
+            isShown = isShown,
+            onSkillsClick = onSkillsClick,
             modifier = modifier
-        ) {
-            DeveloperHeading(
-                name = name,
-                title = title,
-                modifier = modifier.fillMaxWidth()
-            )
-            DeveloperDescription(
-                text = text,
-                fontSize = 20,
-                modifier = modifier
-                    .fillMaxWidth()
-                    .padding(12.dp)
-            )
-            DeveloperSkillsSection(
-                fontSize = 20,
-                skillsList = skillsList,
-                isShown = isShown,
-                onSkillsClick = onSkillsClick,
-                modifier = modifier
-            )
-            DeveloperMail(
-                mail = mail,
-                fontSize = 20,
-                modifier = modifier
-            )
-        }
+        )
     }
+}
+
+@Composable
+fun DeveloperFileContent(
+    name: String,
+    title: String,
+    text: String,
+    mail: String,
+    skillsList: Array<String>,
+    isShown: Boolean,
+    onSkillsClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+
+    Column (
+        modifier = modifier
+    ) {
+        DeveloperHeading(
+            name = name,
+            title = title,
+            modifier = modifier.fillMaxWidth()
+        )
+        DeveloperDescription(
+            text = text,
+            fontSize = 20,
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(12.dp)
+        )
+        DeveloperSkillsSection(
+            fontSize = 20,
+            skillsList = skillsList,
+            isShown = isShown,
+            onSkillsClick = onSkillsClick,
+            modifier = modifier
+        )
+        DeveloperMail(
+            mail = mail,
+            fontSize = 20,
+            modifier = modifier
+        )
+    }
+
 }
 
 @Composable
@@ -198,9 +223,9 @@ fun DeveloperSkillsSection(
             modifier = modifier,
         ){
             Text(
-                text = "Liste des compétences: ",
+                text = "Mes compétences :",
                 fontWeight = FontWeight.Bold,
-                fontSize = fontSize.sp,
+                fontSize = 18.sp,
                 modifier = modifier.weight(1f)
             )
 
@@ -277,9 +302,9 @@ fun ShowSkillsButton(
     ) {
         Text(
             text = if (isShown) {
-                "Cacher ↑"
+                "Cacher▲"
             } else {
-                "Montrer ↓"
+                "Montrer▼"
             },
             fontSize = fontSize.sp
         )
