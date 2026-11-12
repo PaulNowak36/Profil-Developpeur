@@ -195,11 +195,13 @@ fun DeveloperSkillsSection(
                 modifier = modifier
             )
         }
+        if (isShown) {
+            DeveloperSkillsList(
+                fontSize = fontSize,
+                skillsList = skillsList
+            )
+        }
 
-        DeveloperSkillsList(
-            fontSize = fontSize,
-            skillsList = skillsList
-        )
 
     }
 
@@ -288,5 +290,45 @@ fun DeveloperMail(
 fun DeveloperScreenPreview() {
     ProfilDeveloppeurTheme {
         DeveloperScreen()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ProductSkillsShownPreview() {
+    ProfilDeveloppeurTheme {
+        DeveloperFile(
+            name = "Paul NOWAK",
+            title = "Concepteur Développeur",
+            text = "Etudiant en première année de mastère spécialisé dans l'architecture des logiciels.",
+            skillsList = arrayOf("C++", "Python", "TypeScript"),
+            mail = "p.nowak@myskolae.fr",
+            isShown = true,
+            onSkillsClick = {
+                // Plus tard : Montrer les compétences
+            },
+            modifier = Modifier
+                .padding(16.dp)
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ProductSkillsHiddenPreview() {
+    ProfilDeveloppeurTheme {
+        DeveloperFile(
+            name = "Paul NOWAK",
+            title = "Développeur Full Stack",
+            text = "Etudiant en première année de mastère spécialisé dans l'architecture des logiciels.",
+            skillsList = arrayOf("C++", "React", "HTML"),
+            mail = "p.nowak@myskolae.fr",
+            isShown = false,
+            onSkillsClick = {
+                // Plus tard : Montrer les compétences
+            },
+            modifier = Modifier
+                .padding(16.dp)
+        )
     }
 }
