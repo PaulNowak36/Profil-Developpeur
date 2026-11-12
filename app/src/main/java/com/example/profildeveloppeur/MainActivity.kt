@@ -261,9 +261,9 @@ fun ShowSkillsButton(
     ) {
         Text(
             text = if (isShown) {
-                "Cacher"
+                "Cacher ↑"
             } else {
-                "Montrer"
+                "Montrer ↓"
             },
             fontSize = fontSize.sp
         )
