@@ -53,6 +53,7 @@ fun DeveloperScreen(modifier: Modifier = Modifier) {
         text = "Etudiant en première année de mastère spécialisé dans l'architecture des logiciels.",
         skillsList = arrayOf("C#", "Python", "React"),
         mail = "p.nowak@myskolae.fr",
+        isShown = true,
         onSkillsClick = {
             // Plus tard : Montrer les compétences
         },
@@ -67,6 +68,7 @@ fun DeveloperFile(
     text: String,
     mail: String,
     skillsList: Array<String>,
+    isShown: Boolean,
     onSkillsClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -86,9 +88,10 @@ fun DeveloperFile(
                     .fillMaxWidth()
                     .padding(12.dp)
             )
-            DeveloperSkillsList(
+            DeveloperSkillsSection(
                 fontSize = 20,
                 skillsList = skillsList,
+                isShown = isShown,
                 onSkillsClick = onSkillsClick,
                 modifier = modifier
             )
@@ -166,9 +169,10 @@ fun DeveloperDescription(
 }
 
 @Composable
-fun DeveloperSkillsList(
+fun DeveloperSkillsSection(
     fontSize: Int,
     skillsList: Array<String>,
+    isShown: Boolean,
     onSkillsClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -185,13 +189,30 @@ fun DeveloperSkillsList(
             )
 
             ShowSkillsButton(
-                isShown = false,
+                isShown = isShown,
                 fontSize = fontSize,
                 onSkillsClick = onSkillsClick,
                 modifier = modifier
             )
         }
 
+        DeveloperSkillsList(
+            fontSize = fontSize,
+            skillsList = skillsList
+        )
+
+    }
+
+}
+
+@Composable
+fun DeveloperSkillsList(
+    fontSize: Int,
+    skillsList: Array<String>,
+    modifier: Modifier = Modifier
+) {
+
+    Column {
         DeveloperUniqueSkill(
             skill = skillsList[0],
             fontSize = fontSize,
@@ -208,8 +229,8 @@ fun DeveloperSkillsList(
             modifier = modifier
         )
     }
-
 }
+
 
 @Composable
 fun DeveloperUniqueSkill(
