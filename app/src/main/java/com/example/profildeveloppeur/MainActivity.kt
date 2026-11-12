@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -20,6 +21,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
@@ -54,6 +56,9 @@ fun DeveloperScreen(modifier: Modifier = Modifier) {
         skillsList = arrayOf("C#", "Python", "React"),
         mail = "p.nowak@myskolae.fr",
         isShown = true,
+        onFileClick = {
+            // Plus tard : ouvrir le détail de la fiche développeur
+        },
         onSkillsClick = {
             // Plus tard : Montrer les compétences
         },
@@ -69,10 +74,21 @@ fun DeveloperFile(
     mail: String,
     skillsList: Array<String>,
     isShown: Boolean,
+    onFileClick: () -> Unit,
     onSkillsClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Surface(color = Color.White) {
+    Surface(
+        color = Color.White,
+        modifier = modifier
+            .clickable(
+                role = Role.Button,
+                onClick = onFileClick
+            )
+            .semantics {
+                contentDescription = "Ouvrir le détail de la fiche développeur de $name"
+            }
+    ) {
         Column (
             modifier = modifier
         ) {
