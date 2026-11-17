@@ -38,12 +38,46 @@ DeveloperScreen
             │   └── DeveloperSkillsList
             │       └── Column
             │           ├── DeveloperUniqueSkill
-            │               └── Text
+            │           │   └── Text
             │           ├── DeveloperUniqueSkill
-            │               └── Text
+            │           │   └── Text
             │           └── DeveloperUniqueSkill
             │               └── Text
             │   
             └── DeveloperMail
                 └── Text
 ```
+
+Concernant les différents composables:
+
+#### DeveloperScreen
+
+Il s'agit simplement du premier écran de l'application: il a un simple modifier comme paramètre, et son enfant est un composant **DeveloperFile** (avec un padding externe de 1- dp) qu'il faudra paramétrer quand appelé.
+
+#### DeveloperFile
+
+Il représente la fiche de profil et il prends beaucoup de paramètres: 
+- 4 String (Name, Title, text, mail)
+- un Array de String appelé skillsList, représentant la liste des compétences de l'utilisateur
+- un booléen **isShown** qui détermine si les compétences sont montrées ou non
+- 2 évènements **onFileClick** et **onSkillsClick**
+- un simple modifier
+
+Il est séparé en 2 parties: une Surface pour gérer le conteneur cliquable (via onFileClick()) sur la carte , et un composant DeveloperFileContent pour l'organisation interne.
+
+
+#### DeveloperScreen
+
+Il s'agit simplement 
+
+#### DeveloperScreen
+
+Il s'agit simplement 
+
+#### DeveloperScreen
+
+Il s'agit simplement 
+
+#### DeveloperScreen
+
+Il s'agit simplement 
