@@ -63,16 +63,18 @@ Il représente la fiche de profil et il prends beaucoup de paramètres:
 - 2 évènements **onFileClick** et **onSkillsClick**
 - un simple modifier
 
-Il est séparé en 2 parties: une Surface pour gérer le conteneur cliquable (via onFileClick()) sur la carte , et un composant DeveloperFileContent pour l'organisation interne.
+Il est séparé en 2 parties: une Surface pour gérer le conteneur cliquable (via **onFileClick**) sur la carte , et un composant DeveloperFileContent pour l'organisation interne.
 
 
-#### DeveloperScreen
+#### DeveloperFileContent
 
-Il s'agit simplement 
+Comme dit précedemment, il gère l'organisation interne de son composant parent **DeveloperFile** et prend tous ses paramètres à l'exception de **onFileClick**.
 
-#### DeveloperScreen
+Il contient un conteneur de type **Column** qui contient lui-même 4 composants: **DeveloperHeading**, **DeveloperDescription**, **DeveloperSkillsSection** et **DeveloperMail**.
 
-Il s'agit simplement 
+#### DeveloperHeading
+
+Ce composant représente l'
 
 #### DeveloperScreen
 
