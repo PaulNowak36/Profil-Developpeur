@@ -67,21 +67,22 @@ Il représente la fiche de profil et il prends beaucoup de paramètres:
 
 Il est séparé en 2 parties: une Surface pour gérer le conteneur cliquable (via **onFileClick**) sur la carte , et un composant DeveloperFileContent pour l'organisation interne.
 
-
 #### DeveloperFileContent
 
 Comme dit précedemment, il gère l'organisation interne de son composant parent **DeveloperFile** et prend tous ses paramètres à l'exception de **onFileClick**.
 
-Il contient un conteneur de type **Column** qui contient lui-même 4 composants: **DeveloperHeading**, **DeveloperDescription**, **DeveloperSkillsSection** et **DeveloperMail**.
+Il contient un conteneur de type **Column** qui a un padding interne de 2 dp et contient lui-même 4 composants: **DeveloperHeading**, **DeveloperDescription**, **DeveloperSkillsSection** et **DeveloperMail**.
 
 #### DeveloperHeading
 
-Ce composant représente l'
+Ce composant représente l'en-tête du projet (avec le nom et le titre du développeur) et son modifier lui permet d'occuper la largeur maximal qui lui a été accordée.
 
-#### DeveloperScreen
+Il contient une **Surface** de couleur LightGray, puis un **Column** qui contient un **DeveloperName** et un **DeveloperTitle**
 
-Il s'agit simplement 
+#### DeveloperName
 
-#### DeveloperScreen
+Comme son nom l'indique, il affiche le nom du développeur. Par défaut, il a une couleur rouge et un fontsize de 35 sp.
 
-Il s'agit simplement 
+#### DeveloperTitle
+
+Comme son nom l'indique, il affiche le titre du développeur. Par défaut, il a un FontWeight Bold et un fontsize de 35 sp.
