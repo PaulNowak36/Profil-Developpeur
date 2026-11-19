@@ -86,3 +86,41 @@ Comme son nom l'indique, il affiche le nom du développeur. Par défaut, il a un
 #### DeveloperTitle
 
 Comme son nom l'indique, il affiche le titre du développeur. Par défaut, il a un FontWeight Bold et un fontsize de 35 sp.
+
+#### DeveloperDescription
+
+Ce composant affiche une présentation du développeur sous forme de text. Par défaut, il occupe sa largeur maximale, a un padding externe de 12 dp et un fontsize de 20 sp.
+
+#### DeveloperSkillsSection
+
+Cet élément important permets de gérer tout ce qui concerne les compétences connues par le développeur.
+
+En effet, son enfant est un conteneur **Column** qui contient lui-même un conteneur **Row** qui affiche un texte ("Mes compétences:") et un composant **ShowSkillsButton**.
+
+De plus, **DeveloperSkillsSection** peut avoir comme paramètre le booléen **isShown**, et dans le cas où ce dernier est True, la **Column** affichera en plus le composant **DeveloperSkillsList**.
+
+#### DeveloperSkillsList
+
+Ce composant gère la liste complète des compétences connues du développeur. Son enfant est un conteneur **Column** possèdant par défaut 3 composants **DeveloperUniqueSkill** à la suite.
+
+A noter que **DeveloperSkillsList** prend pour paramètre un Array de Strings nommé **skillsList** où chacun de ces éléments (3 par défaut) seront affiché par chaque **DeveloperUniqueSkill**. 
+
+#### DeveloperUniqueSkill
+
+Ce composant affiche un Text pour une compétence en particulier.
+
+#### ShowSkillsButton
+
+Ce composant n'est autre qu'un **Button** prenant pour paramètre l'évènement **onSkillsClick**.
+
+En effet, lorsque l'utilisateur cliquera sur ce bouton, il changera le texte affiché par le bouton ainsi que l'état actuel du booléen **isShown**.
+
+- Dans le cas où **isShown** est **True**, il passera à **False** et le texte affichera **Montrer**
+- Dans le cas où **isShown** est **False**, il passera à **True** et le texte affichera **Cacher**
+
+#### ShowSkillsButton
+
+Ce composant représente l'en-tête du projet (avec le nom et le titre du développeur) et son modifier lui permet d'occuper la largeur maximal qui lui a été accordée.
+
+Il contient une **Surface** de couleur LightGray, puis un **Column** qui contient un **DeveloperName** et un **DeveloperTitle**
+
