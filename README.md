@@ -2,10 +2,16 @@
 
 ## Description du projet
 
-Dans ce devoir, on affiche la fiche profil d'un étudiant développeur afin de connaître des informations le concernant. En effet, il est composé d'un en-tête avec le nom et le titre du développeur en question, une description courte de celui-ci, un bouton permettant d'afficher ou non la liste des compétences informatiques qu'il possède, et finalement son mail de contact. L'écran possède 2 previews: une preview où les compétences sont montrées, et une autre où les compétences sont masquées.
+Dans ce devoir, on affiche la fiche profil d'un étudiant développeur afin de connaître des informations le concernant. En effet, il est composé d'un en-tête avec le nom et le titre du développeur en question, une description courte de celui-ci, un bouton permettant d'afficher ou non la liste des compétences informatiques qu'il possède, et finalement son mail de contact.
 
 ![Capture de l'écran d'accueil](Images/Ecran_principal.png)
 
+ L'écran possède 2 previews: une preview où les compétences sont montrées, et une autre où les compétences sont masquées.
+
+ ![Capture de la preview des compétences cachées](Images/SkillsHidden_Preview.png)
+
+ ![Capture de la preview des compétences montrées](Images/SkillsShown_Preview.png)
+ 
 ## Composition du projet
 
 ### Thème
@@ -113,10 +119,34 @@ Ce composant affiche un Text pour une compétence en particulier.
 
 Ce composant affiche un simple texte représentait le mail de contact de l'utilisateur.
 
+## Questions courtes
 
-#### ShowSkillsButton
+### 1. Quels composables avez-vous créés ? 
 
-Ce composant représente l'en-tête du projet (avec le nom et le titre du développeur) et son modifier lui permet d'occuper la largeur maximal qui lui a été accordée.
+Voir ci-dessus.
 
-Il contient une **Surface** de couleur LightGray, puis un **Column** qui contient un **DeveloperName** et un **DeveloperTitle**
+### 2. Quel composable représente l’écran principal ? 
+
+Le composable **DeveloperScreen**.
+
+### 3. Où utilisez-vous un padding externe ? 
+
+Dans **DeveloperScreen**.
+
+### 4. Où utilisez-vous un padding interne ? 
+
+Dans **DeveloperFileContent**.
+
+### 5. Quel composant reçoit un callback ? 
+
+**DeveloperSkillsSection**.
+
+### 6. Quelle information d’accessibilité avez-vous ajoutée ? 
+
+Une sémentique dans ****DeveloperFile**
+
+### 7. Pourquoi vos composants peuvent-ils être considérés comme réutilisables ?
+
+Car je peux en appeler et en paramétrer via un composable parent.
+
 
