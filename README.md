@@ -109,14 +109,10 @@ A noter que **DeveloperSkillsList** prend pour paramètre un Array de Strings no
 
 Ce composant affiche un Text pour une compétence en particulier.
 
-#### ShowSkillsButton
+#### DeveloperMail
 
-Ce composant n'est autre qu'un **Button** prenant pour paramètre l'évènement **onSkillsClick**.
+Ce composant affiche un simple texte représentait le mail de contact de l'utilisateur.
 
-En effet, lorsque l'utilisateur cliquera sur ce bouton, il changera le texte affiché par le bouton ainsi que l'état actuel du booléen **isShown**.
-
-- Dans le cas où **isShown** est **True**, il passera à **False** et le texte affichera **Montrer**
-- Dans le cas où **isShown** est **False**, il passera à **True** et le texte affichera **Cacher**
 
 #### ShowSkillsButton
 
